@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimension AI | CV Estimator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+    <div class="container">
+        <header>
+            <h1 class="glow-text">Dimension<span>AI</span></h1>
+            <p>Computer Vision measurement with high precision.</p>
+        </header>
+
+        <main>
+            <div class="upload-grid">
+                <div class="card upload-card small" id="drop-zone-1">
+                    <div class="upload-content">
+                        <div class="icon">📷</div>
+                        <h3>Photo A (Left)</h3>
+                        <p>Click to browse</p>
+                        <input type="file" id="file-input-1" hidden accept="image/*">
+                    </div>
+                </div>
+                <div class="card upload-card small" id="drop-zone-2">
+                    <div class="upload-content">
+                        <div class="icon">📷</div>
+                        <h3>Photo B (Right)</h3>
+                        <p>Click to browse</p>
+                        <input type="file" id="file-input-2" hidden accept="image/*">
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-layout">
+                <div class="left-col">
+                    <div class="controls card">
+                        <h3>Configuration</h3>
+                        <div class="input-group">
+                            <label>Distance Moved (mm)</label>
+                            <input type="number" id="baseline" value="100" step="1">
+                        </div>
+                        <button id="process-btn" class="btn-primary">Calculate 3D Dimensions</button>
+                    </div>
+
+                    <div class="card info-card">
+                        <h3>Stereo Tips</h3>
+                        <ul>
+                            <li>Keep objects stationary.</li>
+                            <li>Move camera horizontally.</li>
+                            <li>Upload two sharp photos.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="right-col">
+                    <div id="result-container" class="card result-card hidden">
+                        <h3>3D Reconstruction Results</h3>
+                        <div id="dimension-stats" class="stats-grid">
+                            <div class="stat-item">
+                                <span class="label">Width</span>
+                                <span class="value" id="res-width">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Height</span>
+                                <span class="value" id="res-height">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Depth</span>
+                                <span class="value" id="res-depth">-</span>
+                            </div>
+                        </div>
+                        <div class="image-wrapper">
+                            <img id="result-img" src="" alt="Result">
+                            <div class="loader hidden" id="loader"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
